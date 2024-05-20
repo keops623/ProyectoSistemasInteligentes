@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Verificación de Tarjeta de Crédito</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Verificación de Tarjeta de Crédito</h1>
+        <form method="post" action="/verificar">
+            <label for="cc">Número de Identificación (cc):</label>
+            <input type="text" id="cc" name="cc" required>
+            <button type="submit">Verificar</button>
+        </form>
+        {% if mensaje %}
+            <div class="resultado">
+                <h2>Resultado:</h2>
+                <p>{{ mensaje }}</p>
+                <p>Nombre: {{ nombre }}</p>
+                <p>Edad: {{ edad }} años</p>
+            </div>
+        {% endif %}
+        {% if error %}
+            <div class="error">
+                <h2>Error:</h2>
+                <p>{{ error }}</p>
+            </div>
+        {% endif %}
+    </div>
+</body>
+</html>
